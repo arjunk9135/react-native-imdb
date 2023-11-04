@@ -1,16 +1,28 @@
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect,useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import {Ionicons} from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
 const HomeScreen = () => {
   const navigation=useNavigation();
-  const moveAnimation=new Animation();
+  const moveAnimation=new Animated.Value(0);
+  useEffect
+  useEffect(()=>{  
+    Animated.loop(
+      Animated.timing(moveAnimation,{
+        toValue:-30,
+        duration:2000,
+        useNativeDriver:true
+      })
+    ).start();
+
+  },[])
+
     useLayoutEffect(()=>{
       navigation.setOptions(
       {
-        headerLeft:()=><Text>Hello Arjun </Text>,
+        headerLeft:()=><Text>Hello Arjun</Text>,
         headerStyles:{
           backgroundColor:"#F5F5F5",
           shadowColor:"transparent",
@@ -20,10 +32,9 @@ const HomeScreen = () => {
         },
         headerRight:()=><Pressable style={{flexDirection:"row",alignItems:"center",gap:10}}>
         <Ionicons name="notifications-outline" size={24} color="black" />
-        <Ionicons name="ios-location-outline" size={24} color="black" />
-            <Pressable>
-              <Animated.Text style={[styles.text,{transform: [{ translateX: moveAnimation }] },
-              ]}>
+        <Ionicons onPress={()=>navigation.navigate("PlacesScreen")} name="ios-location-outline" size={24} color="black" />
+            <Pressable onPress={()=>navigation.navigate("PlacesScreen")}>
+              <Animated.Text style={[styles.text,{transform:[{ translateX: moveAnimation }]}]}>
                 <Text>Kochi</Text>
               </Animated.Text>
             </Pressable>
@@ -40,4 +51,9 @@ const HomeScreen = () => {
 
 export default HomeScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  text:{
+    fontSize:16,
+
+  }
+})
