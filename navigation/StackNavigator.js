@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import PlacesScreen from "../screens/PlacesScreen";
 
 const ProfileStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -13,7 +14,8 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreens() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
+      <HomeStack.Screen name="HomeScreen" component={HomeScreen}  options={{title:""}}/>
+      <HomeStack.Screen name="PlacesScreen" component={PlacesScreen}  options={{title:""}}/>
     </HomeStack.Navigator>
   );
 }
