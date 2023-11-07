@@ -21,12 +21,12 @@ const PlacesScreen = () => {
     return (
         <View>
             <View>
-                <TextInput></TextInput>
+                <TextInput>Hey</TextInput>
             </View>
         </View>
     )
 }
 
-export default PlacesScreen
+export default PlacesScreen;
 
 const styles = StyleSheet.create({})

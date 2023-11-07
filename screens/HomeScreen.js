@@ -7,7 +7,7 @@ import { Entypo } from '@expo/vector-icons';
 const HomeScreen = () => {
   const navigation=useNavigation();
   const moveAnimation=new Animated.Value(0);
-  useEffect
+  
   useEffect(()=>{  
     Animated.loop(
       Animated.timing(moveAnimation,{

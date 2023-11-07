@@ -5,11 +5,11 @@ import {PlaceContext} from './PlaceContext';
 
 export default function App() {
   return (
-   <>
+   
    <PlaceContext>
-   <Navigation/>
+     <Navigation/>
    </PlaceContext>
-   </>
+   
   );
 }
 
